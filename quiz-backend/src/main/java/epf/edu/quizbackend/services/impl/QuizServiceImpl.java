@@ -29,6 +29,11 @@ public class QuizServiceImpl implements IQuizService {
     }
 
     @Override
+    public List<Quiz> getQuizByTheme(String theme) {
+        return quizRepository.findQuizByTheme(theme);
+    }
+
+    @Override
     public Quiz createQuiz(QuizDTO quizDTO) {
         Quiz quiz = new Quiz();
         BeanUtils.copyProperties(quizDTO, quiz);

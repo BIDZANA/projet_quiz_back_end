@@ -1,14 +1,13 @@
 package epf.edu.quizbackend.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class QuizDTO {
-
-    private Long id_quiz;
     private String theme;
+    private String description;
+    private String image;
 }

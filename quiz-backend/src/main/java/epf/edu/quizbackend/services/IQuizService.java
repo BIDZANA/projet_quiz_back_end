@@ -11,6 +11,8 @@ public interface IQuizService {
 
     Quiz getQuizById(Long id);
 
+    List<Quiz> getQuizByTheme(String theme);
+
     Quiz createQuiz(QuizDTO quizDTO);
 
     Quiz updateQuiz(Long id, QuizDTO quizDTO);

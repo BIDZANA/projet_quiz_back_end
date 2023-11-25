@@ -1,12 +1,8 @@
 package epf.edu.quizbackend.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -16,13 +12,15 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Quiz {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_quiz;
-
     private String theme;
+    private String description;
+    private String image;
 
     @OneToMany(mappedBy = "quiz")
     @JsonIgnore
