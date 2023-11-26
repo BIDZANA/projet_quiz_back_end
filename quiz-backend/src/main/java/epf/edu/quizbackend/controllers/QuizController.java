@@ -33,6 +33,11 @@ public class QuizController {
                 .collect(Collectors.toList());
     }
 
+    @GetMapping("/listThemes")
+    public List<String> getAllThemes(){
+        return quizService.getAllThemes();
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<QuizDTO> getQuizById(@PathVariable Long id) {
         Quiz quiz = quizService.getQuizById(id);

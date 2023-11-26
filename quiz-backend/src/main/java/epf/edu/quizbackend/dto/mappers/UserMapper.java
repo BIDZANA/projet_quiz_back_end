@@ -28,6 +28,8 @@ public class UserMapper {
         UserDTO userDTO = new UserDTO();
         userDTO.setUsername(user.getUsername());
         userDTO.setEmail(user.getEmail());
+        userDTO.setRole(user.getRole().toString());
+
         return userDTO;
     }
 }

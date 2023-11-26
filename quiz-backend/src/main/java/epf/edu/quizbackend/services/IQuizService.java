@@ -18,4 +18,5 @@ public interface IQuizService {
     Quiz updateQuiz(Long id, QuizDTO quizDTO);
 
     void deleteQuiz(Long id);
+    List<String> getAllThemes();
 }

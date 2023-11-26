@@ -54,4 +54,9 @@ public class QuizServiceImpl implements IQuizService {
     public void deleteQuiz(Long id) {
         quizRepository.deleteById(id);
     }
+
+    @Override
+    public List<String> getAllThemes() {
+        return quizRepository.findAllThemes();
+    }
 }

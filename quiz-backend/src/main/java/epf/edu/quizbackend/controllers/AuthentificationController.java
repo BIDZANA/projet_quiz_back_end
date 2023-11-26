@@ -31,9 +31,9 @@ public class AuthentificationController {
     }
 
     @GetMapping("/signin")
-    public ResponseEntity<UserDTO> signIn(@RequestParam("email") String email) {
+    public ResponseEntity<UserDTO> signIn(@RequestParam("username") String username) {
         try {
-            UserDTO user = authentificationService.signIn(email);
+            UserDTO user = authentificationService.signIn(username);
             return new ResponseEntity<>(user, HttpStatus.OK);
         } catch (AuthentificationException e) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
@@ -50,7 +50,7 @@ public class AuthentificationController {
             if (user != null && !user.isEmailVerified()) {
                 // Mise à jour du statut de vérification
                 user.setEmailVerified(true);
-                authentificationService.save(user);
+                authentificationService.update(user);
                 return ResponseEntity.ok("Adresse e-mail vérifiée avec succès!");
             } else if (user != null && user.isEmailVerified()) {
                 // Le lien a déjà été utilisé
