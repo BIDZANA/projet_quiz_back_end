@@ -1,5 +1,6 @@
 package epf.edu.quizbackend.controllers;
 
+import epf.edu.quizbackend.dto.QuestionDTO;
 import epf.edu.quizbackend.dto.mappers.QuizMapper;
 import epf.edu.quizbackend.entities.Quiz;
 import epf.edu.quizbackend.dto.QuizDTO;
@@ -21,7 +22,6 @@ import java.util.stream.Collectors;
 public class QuizController {
 
     private final IQuizService quizService;
-    public static QuizMapper quizMapper;
 
     @GetMapping()
     public List<Quiz> getAllQuizzes() {
@@ -66,4 +66,6 @@ public class QuizController {
         quizService.deleteQuiz(id);
         return ResponseEntity.noContent().build();
     }
+
+
 }

@@ -1,6 +1,7 @@
 package epf.edu.quizbackend.services;
 
 import epf.edu.quizbackend.dto.QuestionDTO;
+import epf.edu.quizbackend.entities.Question;
 import epf.edu.quizbackend.entities.Quiz;
 import epf.edu.quizbackend.dto.QuizDTO;
 

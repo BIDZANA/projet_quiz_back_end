@@ -1,9 +1,11 @@
 package epf.edu.quizbackend.controllers;
 
+import epf.edu.quizbackend.dto.QuestionDTO;
 import epf.edu.quizbackend.dto.UserResponseDTO;
 import epf.edu.quizbackend.entities.Game;
 import epf.edu.quizbackend.dto.GameDTO;
 import epf.edu.quizbackend.services.IGameService;
+import epf.edu.quizbackend.services.IQuizService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,7 @@ import java.util.List;
 public class GameController {
 
     private final IGameService gameService;
+    private final IQuizService quizService;
 
     @GetMapping
     public List<Game> getAllGames() {
@@ -67,5 +70,10 @@ public class GameController {
     public ResponseEntity<Void> deleteGame(@PathVariable Long id) {
         gameService.deleteGame(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{quizId}/questions")
+    public List<QuestionDTO> getQuestionsForQuiz(@PathVariable Long quizId) {
+        return quizService.getQuestionsForQuiz(quizId);
     }
 }
