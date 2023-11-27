@@ -71,7 +71,7 @@ public class QuizServiceImpl implements IQuizService {
 
     @Override
     public List<QuestionDTO> getQuestionsForQuiz(Long quizId) {
-        List<Question> questions = questionRepository.findByQuiz_Id_quiz(quizId);
+        List<Question> questions = questionRepository.findByIdQuiz(quizId);
         return questions.stream()
                 .map(mapper::questionToQuestionDTO)
                 .collect(Collectors.toList());
