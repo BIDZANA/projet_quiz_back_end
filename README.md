@@ -1,5 +1,3 @@
-Bien sûr, voici une version mise en forme du README :
-
 # Jeu de Quiz
 
 Bienvenue dans l'application de jeu de quiz ! Cette application offre une plateforme amusante où les utilisateurs peuvent jouer à des quiz, créer de nouveaux quiz et participer à des parties passionnantes.
