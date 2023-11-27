@@ -1,5 +1,7 @@
 package epf.edu.quizbackend.services.impl;
 
+import epf.edu.quizbackend.dto.UserResponseDTO;
+import epf.edu.quizbackend.dto.mappers.GameMapper;
 import epf.edu.quizbackend.entities.Game;
 import epf.edu.quizbackend.dto.GameDTO;
 import epf.edu.quizbackend.repositories.GameRepository;
@@ -7,12 +9,14 @@ import epf.edu.quizbackend.services.IGameService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
 public class GameServiceImpl implements IGameService {
 
     private final GameRepository gameRepository;
+    private GameMapper mapper;
 
     public GameServiceImpl(GameRepository gameRepository) {
         this.gameRepository = gameRepository;
@@ -42,6 +46,20 @@ public class GameServiceImpl implements IGameService {
             BeanUtils.copyProperties(gameDTO, existingGame);
             return gameRepository.save(existingGame);
         }
+        return null;
+    }
+
+    @Override
+    public GameDTO startGame(Long quizId) {
+        GameDTO gameDTO = new GameDTO();
+        gameDTO.setId_quiz(quizId);
+        gameDTO.setDate(LocalDate.now());
+        gameDTO.setScore(0);
+        return mapper.gameToGameDTO(createGame(gameDTO));
+    }
+
+    @Override
+    public GameDTO submitResponse(UserResponseDTO userResponseDTO) {
         return null;
     }
 

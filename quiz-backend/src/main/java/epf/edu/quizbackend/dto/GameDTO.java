@@ -2,7 +2,7 @@ package epf.edu.quizbackend.dto;
 
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -11,7 +11,7 @@ import java.util.Date;
 public class GameDTO {
 
     private Long id_game;
-    private Date date;
+    private LocalDate date;
     private Integer score;
     private Long id_quiz;
 }

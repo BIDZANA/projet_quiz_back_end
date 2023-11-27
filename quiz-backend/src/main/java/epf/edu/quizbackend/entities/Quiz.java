@@ -19,8 +19,10 @@ public class Quiz {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_quiz;
     private String theme;
+    private String title;
     private String description;
     private String image;
+    private String level;
 
     @OneToMany(mappedBy = "quiz")
     @JsonIgnore

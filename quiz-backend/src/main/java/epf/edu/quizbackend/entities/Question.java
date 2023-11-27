@@ -21,7 +21,6 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_question;
-
     private String statement;
     private String image;
 

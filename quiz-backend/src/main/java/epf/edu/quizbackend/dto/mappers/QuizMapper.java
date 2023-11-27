@@ -12,6 +12,8 @@ public class QuizMapper {
         quizDTO.setTheme(quiz.getTheme());
         quizDTO.setDescription(quiz.getDescription());
         quizDTO.setImage(quiz.getImage());
+        quizDTO.setTitle(quiz.getTitle());
+        quizDTO.setLevel(quiz.getLevel());
 
         return quizDTO;
     }
@@ -23,6 +25,8 @@ public class QuizMapper {
         quiz.setTheme(quizDTO.getTheme());
         quiz.setDescription(quizDTO.getDescription());
         quiz.setImage(quizDTO.getImage());
+        quiz.setTitle(quizDTO.getTitle());
+        quiz.setLevel(quizDTO.getLevel());
 
         return quiz;
     }

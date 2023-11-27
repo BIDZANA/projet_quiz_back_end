@@ -4,9 +4,7 @@ import epf.edu.quizbackend.dto.mappers.QuizMapper;
 import epf.edu.quizbackend.entities.Quiz;
 import epf.edu.quizbackend.dto.QuizDTO;
 import epf.edu.quizbackend.services.IQuizService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -26,11 +24,8 @@ public class QuizController {
     public static QuizMapper quizMapper;
 
     @GetMapping()
-    public List<QuizDTO> getAllQuizzes() {
-        List<Quiz> quizzes = quizService.getAllQuizzes();
-        return quizzes.stream()
-                .map(quizMapper::toDto)
-                .collect(Collectors.toList());
+    public List<Quiz> getAllQuizzes() {
+        return quizService.getAllQuizzes();
     }
 
     @GetMapping("/listThemes")
@@ -39,18 +34,15 @@ public class QuizController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<QuizDTO> getQuizById(@PathVariable Long id) {
+    public ResponseEntity<Quiz> getQuizById(@PathVariable Long id) {
         Quiz quiz = quizService.getQuizById(id);
         return quiz != null
-                ? ResponseEntity.ok().body(quizMapper.toDto(quiz))
+                ? ResponseEntity.ok().body(quiz)
                 : ResponseEntity.notFound().build();
     }
-    @GetMapping("/{theme}")
-    public List<QuizDTO> getQuizByTheme(@PathVariable String theme){
-        List<Quiz> quizzes = quizService.getQuizByTheme(theme);
-        return quizzes.stream()
-                .map(quizMapper::toDto)
-                .collect(Collectors.toList());
+    @GetMapping("/listByTheme/{theme}")
+    public List<Quiz> getQuizByTheme(@PathVariable String theme){
+        return quizService.getQuizByTheme(theme);
     }
 
     @PostMapping()

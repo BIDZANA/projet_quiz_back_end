@@ -1,5 +1,6 @@
 package epf.edu.quizbackend.services;
 
+import epf.edu.quizbackend.dto.QuestionDTO;
 import epf.edu.quizbackend.entities.Quiz;
 import epf.edu.quizbackend.dto.QuizDTO;
 
@@ -19,4 +20,5 @@ public interface IQuizService {
 
     void deleteQuiz(Long id);
     List<String> getAllThemes();
+    List<QuestionDTO> getQuestionsForQuiz(Long quizId);
 }

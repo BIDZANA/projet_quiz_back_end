@@ -21,7 +21,6 @@ public class Response {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_response;
-
     private Boolean isValid;
     private String value;
 
